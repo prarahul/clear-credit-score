@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Credit Risk Modeling Design System - Professional Financial Dashboard */
+
+@layer base {
+  :root {
+    /* Background & Foundation */
+    --background: 240 10% 98%;
+    --foreground: 210 20% 12%;
+
+    /* Cards & Surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 12%;
+    --card-elevated: 210 30% 98%;
+
+    /* Popover & Overlay */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 12%;
+
+    /* Primary - Financial Blue */
+    --primary: 213 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 213 85% 40%;
+    --primary-light: 213 85% 95%;
+
+    /* Secondary - Professional Gray */
+    --secondary: 210 15% 92%;
+    --secondary-foreground: 210 20% 25%;
+    --secondary-hover: 210 15% 88%;
+
+    /* Muted & Subtle */
+    --muted: 210 20% 95%;
+    --muted-foreground: 210 15% 45%;
+
+    /* Accent - Fintech Teal */
+    --accent: 180 65% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 180 65% 95%;
+
+    /* Risk Color Palette */
+    --risk-low: 120 60% 50%;
+    --risk-low-light: 120 60% 95%;
+    --risk-medium: 45 90% 55%;
+    --risk-medium-light: 45 90% 95%;
+    --risk-high: 0 75% 55%;
+    --risk-high-light: 0 75% 95%;
+
+    /* Status Colors */
+    --success: 120 60% 50%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 90% 55%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 213 85% 45%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(213 85% 45%), hsl(213 85% 55%));
+    --gradient-risk: linear-gradient(90deg, hsl(120 60% 50%), hsl(45 90% 55%), hsl(0 75% 55%));
+    --gradient-dashboard: linear-gradient(180deg, hsl(240 10% 98%), hsl(210 30% 98%));
+
+    /* Shadows */
+    --shadow-card: 0 2px 8px -2px hsl(210 25% 25% / 0.08);
+    --shadow-elevated: 0 8px 24px -4px hsl(210 25% 25% / 0.12);
+    --shadow-glow: 0 0 24px hsl(213 85% 45% / 0.15);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Background & Foundation */
+    --background: 220 15% 8%;
+    --foreground: 210 20% 92%;
+
+    /* Cards & Surfaces */
+    --card: 220 15% 10%;
+    --card-foreground: 210 20% 92%;
+    --card-elevated: 220 15% 12%;
+
+    /* Popover & Overlay */
+    --popover: 220 15% 10%;
+    --popover-foreground: 210 20% 92%;
+
+    /* Primary - Financial Blue (adjusted for dark mode) */
+    --primary: 213 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 213 85% 50%;
+    --primary-light: 213 85% 15%;
+
+    /* Secondary - Professional Gray */
+    --secondary: 220 10% 18%;
+    --secondary-foreground: 210 20% 85%;
+    --secondary-hover: 220 10% 22%;
+
+    /* Muted & Subtle */
+    --muted: 220 15% 15%;
+    --muted-foreground: 210 15% 65%;
+
+    /* Accent - Fintech Teal */
+    --accent: 180 65% 45%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 180 65% 15%;
+
+    /* Risk Color Palette (dark mode adjusted) */
+    --risk-low: 120 60% 45%;
+    --risk-low-light: 120 60% 15%;
+    --risk-medium: 45 90% 50%;
+    --risk-medium-light: 45 90% 15%;
+    --risk-high: 0 75% 50%;
+    --risk-high-light: 0 75% 15%;
+
+    /* Status Colors */
+    --success: 120 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 90% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 213 85% 55%;
+
+    /* Gradients (dark mode) */
+    --gradient-primary: linear-gradient(135deg, hsl(213 85% 45%), hsl(213 85% 55%));
+    --gradient-risk: linear-gradient(90deg, hsl(120 60% 45%), hsl(45 90% 50%), hsl(0 75% 50%));
+    --gradient-dashboard: linear-gradient(180deg, hsl(220 15% 8%), hsl(220 15% 10%));
+
+    /* Shadows (adjusted for dark mode) */
+    --shadow-card: 0 2px 8px -2px hsl(0 0% 0% / 0.25);
+    --shadow-elevated: 0 8px 24px -4px hsl(0 0% 0% / 0.35);
+    --shadow-glow: 0 0 24px hsl(213 85% 55% / 0.25);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
