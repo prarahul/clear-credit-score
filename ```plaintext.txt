@@ -1,0 +1,11 @@
+```plaintext
+// filepath: c:\Users\RAHUL\Desktop\clear-credit-score-main\.gitignore
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+models/
+reports/
+data/*.csv
+*.pyc
+.DS_Store
+```
