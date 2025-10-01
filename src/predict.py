@@ -28,11 +28,10 @@ def predict_from_dict(sample: dict, model_path: Path | None = None):
     return {"prob_default": float(proba_bad), "risk": risk}
 
 if __name__ == "__main__":
-    # Usage: python -m src.predict sample.json
     if len(sys.argv) < 2:
-        print("Usage: python -m src.predict sample.json")
-        sys.exit(1)
+        print("Usage: python -m src.predict sample.json [model_path]")
+        raise SystemExit(1)
     sample_path = Path(sys.argv[1])
+    model_path = Path(sys.argv[2]) if len(sys.argv) > 2 else None
     sample = json.loads(sample_path.read_text())
-    result = predict_from_dict(sample)
-    print(json.dumps(result, indent=2))
+    print(json.dumps(predict_from_dict(sample, model_path=model_path), indent=2))
