@@ -14,7 +14,9 @@ def categorize(prob_default: float, thresholds: dict[str, float]) -> str:
 
 def predict_from_dict(sample: dict, model_path: Path | None = None):
     root = Path(__file__).resolve().parents[1]
-    model_path = model_path or (root / "models" / "credit_model.joblib")
+    if model_path is None:
+        best = root / "models" / "credit_model_best.joblib"
+        model_path = best if best.exists() else (root / "models" / "credit_model.joblib")
     bundle = joblib.load(model_path)
     pipe = bundle["pipeline"]
     thresholds = bundle.get("thresholds", {"low": 0.20, "medium": 0.50})

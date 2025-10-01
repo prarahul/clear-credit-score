@@ -6,3 +6,7 @@ reports/
 data/*.csv
 *.pyc
 .DS_Store
+.pytest_cache/
+.vscode/
+input.csv
+output_with_scores.csv
