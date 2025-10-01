@@ -6,12 +6,12 @@ import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from .predict import categorize  # reuse same risk bands
+from .predict import categorize
 
 class CreditRequest(BaseModel):
     checking_status: str
     duration: int
-    credit_history: str  
+    credit_history: str
     purpose: str
     credit_amount: int
     savings_status: str
@@ -34,17 +34,24 @@ class CreditResponse(BaseModel):
     prob_default: float
     risk: str
 
-app = FastAPI(title="Credit Risk API", version="1.0.0")
+app = FastAPI(
+    title="Credit Risk API", 
+    version="1.0.0",
+    description="AI-Powered Credit Risk Assessment System",
+    docs_url="/docs",  # Swagger UI will be at /docs
+    redoc_url="/redoc"
+)
 
-# Add CORS middleware
+# Add CORS for production
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=["*"],  # In production, specify your frontend domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# Global variables for model
 _BUNDLE: dict | None = None
 _PIPE = None
 _FEATURE_COLUMNS: list[str] = []
@@ -67,6 +74,15 @@ def _load_bundle():
 @app.on_event("startup")
 def on_startup():
     _load_bundle()
+
+@app.get("/")
+def root():
+    return {
+        "message": "🏦 Credit Risk Assessment API",
+        "version": "1.0.0",
+        "docs": "/docs",
+        "health": "/health"
+    }
 
 @app.get("/health")
 def health():
